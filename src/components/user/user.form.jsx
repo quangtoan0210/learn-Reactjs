@@ -1,13 +1,23 @@
 import { Button, Input } from "antd";
 import { useState } from "react";
+import axios from "axios";
 const UserForm = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [phone, setPhone] = useState("");
 
-    const handleClickBtn = ()=>{
-        console.log(fullName,email,password,phoneNumber);
+
+    const handleClickBtn = () => {
+        const URL_BACKEND = "http://localhost:8080/api/v1/user";
+        const data = {
+            fullName: fullName,
+            email: email,
+            password: password,
+            phone: phone,
+        }
+        axios.post(URL_BACKEND, data)
+        console.log(fullName, email, password, phone);
     }
     return (
         <div className="user-form" style={{ margin: "20px 0" }}>
@@ -16,32 +26,35 @@ const UserForm = () => {
                     <span>Full Name</span>
                     <Input
                         value={fullName}
-                        onChange={(e) => { setFullName(e.target.value) }}
+                        onChange={(event) => { setFullName(event.target.value) }}
                     />
                 </div>
                 <div>
                     <span>Email</span>
                     <Input
                         value={email}
-                        onChange={(e) => { setEmail(e.target.value) }}
+                        onChange={(event) => { setEmail(event.target.value) }}
                     />
                 </div>
                 <div>
                     <span>Password</span>
                     <Input.Password
                         value={password}
-                        onChange={(e) => { setPassword(e.target.value) }}
+                        onChange={(event) => { setPassword(event.target.value) }}
                     />
                 </div>
                 <div>
                     <span>Phone number</span>
                     <Input
-                        value={phoneNumber}
-                        onChange={(e) => { setPhoneNumber(e.target.value) }}
+                        value={phone}
+                        onChange={(event) => { setPhone(event.target.value) }}
                     />
                 </div>
                 <div>
-                    <Button type="primary" onClick={handleClickBtn}> Create User </Button>
+                    <Button
+                        // onClick={() => handleClickBtn()}
+                        onClick={handleClickBtn}
+                        type="primary"> Create User </Button>
                 </div>
             </div>
         </div>
@@ -49,3 +62,4 @@ const UserForm = () => {
 }
 
 export default UserForm;
+
