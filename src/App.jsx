@@ -5,18 +5,8 @@ import reactLogo from './assets/react.svg';
 import { useState } from 'react';
 
 const App = () => {
-  const [todoList, setTodoList] = useState([
-    { id: 1, name: "learning react" },
-    { id: 2, name: "learning vue" },
+  const [todoList, setTodoList] = useState([]);
 
-  ]);
-  const name = 'quangtoan';
-  const age = 13;
-  const person = {
-    name: 'Quang Toản',
-    age: 25,
-    address: 'Hà Nội',
-  }
   const addNewTodo = (name) => {
     const newTodo = {
       id: todoList.length + 1,
@@ -31,9 +21,6 @@ const App = () => {
         addNewTodo={addNewTodo}
       />
       <TodoData
-        name={name}
-        age={age}
-        person={person}
         todoList={todoList}  // Truyền object person qua props cho component TodoData
       />
       <div className='todo-image'>
