@@ -18,7 +18,11 @@ const App = () => {
     address: 'Hà Nội',
   }
   const addNewTodo = (name) => {
-    alert(`Add new Todo ${name}`);
+    const newTodo = {
+      id: todoList.length + 1,
+      name: name,
+    }
+    setTodoList([...todoList, newTodo]);
   }
   return (
     <div className="todo-container">
