@@ -11,15 +11,19 @@ const App = () => {
     age: 25,
     address: 'Hà Nội',
   }
-
+  const addNewTodo = (name) => {
+    alert(`Add new Todo ${name}` );
+  }
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
-      <TodoNew />
-      <TodoData 
-      name={name}
-      age={age}
-      person={person}  // Truyền object person qua props cho component TodoData
+      <TodoNew
+        addNewTodo={addNewTodo}
+      />
+      <TodoData
+        name={name}
+        age={age}
+        person={person}  // Truyền object person qua props cho component TodoData
       />
       <div className='todo-image'>
         <img src={reactLogo} className='logo' />
