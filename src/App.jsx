@@ -2,8 +2,14 @@ import TodoData from './components/todo/TodoData';
 import TodoNew from './components/todo/TodoNew';
 import './components/todo/todo.css';
 import reactLogo from './assets/react.svg';
+import { useState } from 'react';
 
 const App = () => {
+  const [todoList, setTodoList] = useState([
+    { id: 1, name: "learning react" },
+    { id: 2, name: "learning vue" },
+
+  ]);
   const name = 'quangtoan';
   const age = 13;
   const person = {
@@ -12,7 +18,7 @@ const App = () => {
     address: 'Hà Nội',
   }
   const addNewTodo = (name) => {
-    alert(`Add new Todo ${name}` );
+    alert(`Add new Todo ${name}`);
   }
   return (
     <div className="todo-container">
@@ -23,7 +29,8 @@ const App = () => {
       <TodoData
         name={name}
         age={age}
-        person={person}  // Truyền object person qua props cho component TodoData
+        person={person}
+        todoList={todoList}  // Truyền object person qua props cho component TodoData
       />
       <div className='todo-image'>
         <img src={reactLogo} className='logo' />
