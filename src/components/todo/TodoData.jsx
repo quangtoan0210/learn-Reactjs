@@ -3,7 +3,15 @@ const TodoData = (props) => {
     console.log(props);
     return (
         <div className='todo-data'>
-            <div>{JSON.stringify(todoList)}</div>
+            {todoList.map((item,index)=>{
+                return(
+                    <div className="todo-item">
+                        <div>{item.name}</div>
+                        <button>Delete</button>
+                    </div>
+                   
+                )
+            })}
         </div>
     )
 }

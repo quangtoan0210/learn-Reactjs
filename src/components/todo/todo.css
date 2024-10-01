@@ -47,7 +47,12 @@
 .logo.react:hover {
     filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+.todo-item{
+    
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
 @media (prefers-reduced-motion: no-preference) {
     .logo {
         animation: logo-spin infinite 20s linear;
