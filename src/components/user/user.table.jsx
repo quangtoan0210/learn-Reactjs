@@ -1,14 +1,9 @@
 import { Space, Table, Tag } from 'antd';
-import { fetchAllUserApi } from '../../sercives/api.service';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 
-const UserTable = () => {
-    const [dataUsers, setDataUsers] = useState([])
-    useEffect(()=>{
-        loadUser();
-    },[])
+
+const UserTable = (props) => {
+    const{dataUsers} =props;
     const columns = [
         {
             title: 'Id',
@@ -23,10 +18,7 @@ const UserTable = () => {
             dataIndex: 'email',
         }
     ];
-    const loadUser = async () => {
-        const res = await fetchAllUserApi()
-        setDataUsers(res.data)
-    }
+
     return (
         <Table columns={columns} dataSource={dataUsers} rowKey={"_id"} />
     )
