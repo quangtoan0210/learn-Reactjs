@@ -71,7 +71,11 @@ const LoginPage = () => {
                                 },
                             ]}
                         >
-                            <Input.Password />
+                            <Input.Password  onKeyDown={(e)=>{
+                                if(e.key === 'Enter'){
+                                    form.submit();
+                                }
+                            }}/>
                         </Form.Item>
 
                         <Form.Item >

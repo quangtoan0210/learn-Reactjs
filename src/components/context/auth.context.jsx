@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 export const AuthContext = createContext({
     email: "",
@@ -6,8 +6,9 @@ export const AuthContext = createContext({
     fullName: "",
     role: "",
     avatar: "",
-    id: "",
+    id: ""
 });
+
 export const AuthWrapper = (props) => {
     const [user, setUser] = useState({
         email: "",
@@ -15,11 +16,19 @@ export const AuthWrapper = (props) => {
         fullName: "",
         role: "",
         avatar: "",
-        id: "",
-    });
+        id: ""
+    })
+
+    const [isAppLoading, setIsAppLoading] = useState(true);
+
+
     return (
-        <AuthContext.Provider value={{user,setUser}}>
+        <AuthContext.Provider value={{
+            user, setUser,
+            isAppLoading, setIsAppLoading
+        }}>
             {props.children}
+            {/* <RouterProvider router={router} /> */}
         </AuthContext.Provider>
     )
 }
